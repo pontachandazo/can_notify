@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CanNotify</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <div id="header">
+    <div class="header-title">
+      <h1>Can-Notify</h1>
+    </div>
+    <div class="header-menu">
+      <% if user_signed_in? %>
+      <%= link_to 'ホーム' , homes_path, class: "home" %>
+      <%= link_to 'タイムライン', tweets_path, class: "timeline" %>
+      <%= link_to '投稿する', tweets_new_path, class: "post" %>
+      <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "delete" %>
+      <% else %>
+      <%= link_to 'ホーム' , homes_path, class: "home" %>
+      <%= link_to 'ログイン',new_user_session_path, class: "rog-in" %>
+      <%= link_to '新規登録',new_user_registration_path, class: "registration" %>
+      <%= link_to 'タイムライン', tweets_path, class: "timeline" %>
+      <% end %>
+    </div>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="none" id="svg-bg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="none" id="svg-bg">
+         <path d="M0,0 v100 l100,-100 Z" fill="#5ba4cf" />
+
+<!--<path d="M0,0 L100,0 0,100 Z" fill="#5ba4cf" />-->
+        </svg>
+    </svg>
+  </div>
+   <%= yield %>
+    <footer>
+    <p>Copyright(C) Can-Notify ALL RIGHTS RESERVED.</p>
+    </footer>
+  </body>
+</html>

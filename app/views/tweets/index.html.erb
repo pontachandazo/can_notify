@@ -1,0 +1,15 @@
+<div class="contents">
+  <div class="tweet_block">
+    <% @tweets.each do |tweet| %>
+    <div class="tweet_separate">
+    <div class= "text"><%= tweet.text %></div>
+    <div class="image" style="background-image: url(<%= tweet.image %>);">
+    <% if user_signed_in? && current_user.id == tweet.user_id %>
+    <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get, class: "edit" %>
+    <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete, class: "delete" %>
+    <% end %>
+    </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="contents">
+<div class="form">
+<%= form_for :tweet, url: tweets_create_path, method: :post do |f| %>
+
+  <div class="field">
+    <%= f.label :text, "テキスト" %>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "写真" %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
+</div>
+
+</div>
